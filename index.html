@@ -16,7 +16,6 @@
   }
   body{font-family:'Inter',sans-serif;background:var(--gray);color:var(--navy);min-height:100vh;}
 
-  /* NAV */
   nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--gray3);position:sticky;top:0;background:var(--white);z-index:100;}
   .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
   .logo-text{font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-0.3px;}
@@ -25,11 +24,6 @@
   .nav-right a{color:var(--gray2);font-size:14px;text-decoration:none;font-weight:400;transition:.2s;}
   .nav-right a:hover{color:var(--navy);}
 
-  /* DIAMOND LOGO — faithful SVG recreation */
-  .diamond-svg .facet-light{fill:#FF5454;}
-  .diamond-svg .facet-dark{fill:#d94444;}
-
-  /* HERO */
   .hero{padding:64px 48px 52px;background:var(--navy);position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,84,84,.08) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
   .hero-label{font-size:11px;font-weight:500;color:var(--gray2);letter-spacing:.8px;text-transform:uppercase;margin-bottom:18px;}
@@ -37,7 +31,6 @@
   .hero h1 .dot{color:var(--coral);}
   .hero p{margin-top:14px;color:#9ca3af;font-size:15px;font-weight:400;line-height:1.65;max-width:460px;}
 
-  /* SEARCH */
   .search-wrap{padding:28px 48px;background:var(--white);border-bottom:1px solid var(--gray3);}
   .search-box{display:flex;align-items:center;gap:12px;background:var(--gray);border:1px solid var(--gray3);border-radius:10px;padding:12px 18px;max-width:520px;transition:.2s;}
   .search-box:focus-within{border-color:var(--coral);background:var(--white);}
@@ -46,20 +39,11 @@
   .search-box input::placeholder{color:var(--gray2);}
   .no-results{display:none;padding:14px 0 0;color:var(--gray2);font-size:14px;}
 
-  /* SECTIONS */
   .section{padding:36px 48px 52px;}
   .section-title{font-size:11px;font-weight:600;color:var(--gray2);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:20px;}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start;}
 
-  /* CARDS */
-  .card{
-    background:var(--white);border:1px solid var(--gray3);border-radius:14px;
-    padding:26px;cursor:pointer;
-    transition:border-color .2s,transform .15s,box-shadow .2s;
-    text-decoration:none;color:inherit;
-    display:flex;flex-direction:column;gap:14px;
-    height:100%;
-  }
+  .card{background:var(--white);border:1px solid var(--gray3);border-radius:14px;padding:26px;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:14px;height:100%;}
   .card:hover{border-color:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
   .card.hidden{display:none;}
 
@@ -71,6 +55,7 @@
   .icon-purple{background:rgba(139,92,246,.1);}
   .icon-teal{background:rgba(20,184,166,.1);}
   .icon-pink{background:rgba(236,72,153,.1);}
+  .icon-orange{background:rgba(249,115,22,.1);}
 
   .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
   .card h3{font-size:15px;font-weight:600;line-height:1.35;color:var(--navy);}
@@ -85,13 +70,11 @@
   .card-footer svg{transition:transform .2s;flex-shrink:0;}
   .card:hover .card-footer svg{transform:translateX(4px);}
 
-  /* TIERS */
   .tier-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
   .tier{display:flex;align-items:center;gap:5px;background:var(--gray);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:500;color:var(--navy2);}
   .tier-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
   .dot-starter{background:#9ca3af;}.dot-silver{background:#94a3b8;}.dot-gold{background:#f59e0b;}.dot-platinum{background:#4181FA;}
 
-  /* EVENTS */
   .events-list{display:flex;flex-direction:column;gap:10px;}
   .event-item{background:var(--white);border:1px solid var(--gray3);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:border-color .2s;}
   .event-date{background:var(--navy);border-radius:9px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:52px;color:var(--white);}
@@ -105,7 +88,6 @@
 
   .divider{border:none;border-top:1px solid var(--gray3);margin:0 48px;}
 
-  /* FOOTER */
   footer{padding:32px 48px;background:var(--navy);}
   .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap;}
   .footer-brand-name{display:flex;align-items:center;gap:8px;}
@@ -132,7 +114,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="logo">
     <img src="https://i.imgur.com/CscBZ2b.png" height="32" alt="holded" style="height:32px;width:auto;">
@@ -145,14 +126,12 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <p class="hero-label">Solution Partner Program</p>
   <h1>Tu centro de recursos<span class="dot">.</span></h1>
   <p>Accede al programa, materiales comerciales, formación y todo lo que necesitas para crecer junto a Holded.</p>
 </div>
 
-<!-- SEARCH -->
 <div class="search-wrap">
   <div class="search-box">
     <svg width="17" height="17" fill="none" stroke="#111827" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -200,7 +179,7 @@
       <div class="card-footer">Abrir presentación <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
 
-    <a href="https://drive.google.com/file/d/1EeBsX2LKuGCpZncaK9Zawhg0ETn0YGi8/view?usp=drive_link" target="_blank" class="card" data-keywords="marca branding logotipo colores tipografía inter diamante identidad visual">
+    <a href="https://drive.google.com/file/d/1Npa8MrAJBFldPvkqdeiwUvZYtZl03K6i/view" target="_blank" class="card" data-keywords="marca branding logotipo colores tipografía inter diamante identidad visual">
       <div class="card-header">
         <div class="card-icon icon-blue">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
@@ -222,7 +201,7 @@
         <span class="card-tag tag-new">Nuevo</span>
       </div>
       <div>
-        <h3>Presentaciones comerciales</h3>
+        <h3>Presentación comercial</h3>
         <p>Deck listo para usar con clientes sobre producto, módulos y propuesta de valor de Holded.</p>
       </div>
       <div class="card-footer">Abrir y hacer copia <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -290,7 +269,7 @@
 <hr class="divider">
 
 <!-- FORMACIÓN -->
-  <div class="section" id="formacion">
+<div class="section" id="formacion">
   <div class="section-title">Formación</div>
   <div class="grid">
 
@@ -322,6 +301,20 @@
       <div class="card-footer">Ir a Academy <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
 
+    <a href="https://fast.wistia.com/embed/channel/l3a6jjuzpz" target="_blank" class="card" data-keywords="tutoriales tutorial vídeos video formación aprender wistia">
+      <div class="card-header">
+        <div class="card-icon icon-orange">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <span class="card-tag tag-video">Video</span>
+      </div>
+      <div>
+        <h3>Tutoriales</h3>
+        <p>Vídeos paso a paso para dominar las funcionalidades clave de Holded y sacarle el máximo partido.</p>
+      </div>
+      <div class="card-footer">Ver tutoriales <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
     <a href="https://www.holded.com/es/webinars" target="_blank" class="card" data-keywords="webinars webinar formación online grabaciones sesiones">
       <div class="card-header">
         <div class="card-icon icon-pink">
@@ -347,7 +340,7 @@
   <div class="events-list">
     <div class="event-item">
       <div class="event-date">
-        <div class="day">28</div>
+        <div class="day">29</div>
         <div class="mon">May</div>
       </div>
       <div class="event-info">
@@ -377,11 +370,10 @@
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-brand-name">
-          <img src="https://i.imgur.com/sqT0pUC.png" height="22" alt="holded" style="height:22px;width:auto;">
+        <img src="https://i.imgur.com/sqT0pUC.png" height="22" alt="holded" style="height:22px;width:auto;">
       </div>
       <p>Tu espacio de recursos como Solution Partner.</p>
     </div>
-
     <div>
       <div class="footer-col-title">Contacta con tu Account Manager</div>
       <div class="am-links">
@@ -390,7 +382,6 @@
         <a href="https://holded.chilipiper.com/me/ignacio-nunez-/meeting-with-ignacio-nunez" target="_blank" class="am-link">Ignacio</a>
       </div>
     </div>
-
     <div>
       <div class="footer-col-title">Herramientas</div>
       <div class="am-links">
@@ -398,7 +389,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>© 2025 Holded · Todos los derechos reservados</p>
     <div class="footer-links">
