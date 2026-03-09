@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP Portal — Holded</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#111827;--navy2:#1f2937;--navy3:#374151;
+    --coral:#FF5454;--coral-dark:#e03e3e;
+    --white:#ffffff;
+    --gray:#F3F4F6;--gray2:#6b7280;--gray3:#e5e7eb;
+    --blue:#4181FA;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--gray);color:var(--navy);min-height:100vh;}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--gray3);position:sticky;top:0;background:var(--white);z-index:100;}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo-text{font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-0.3px;}
+  .nav-badge{background:var(--navy);color:var(--white);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.5px;}
+  .nav-right{display:flex;align-items:center;gap:28px;}
+  .nav-right a{color:var(--gray2);font-size:14px;text-decoration:none;font-weight:400;transition:.2s;}
+  .nav-right a:hover{color:var(--navy);}
+
+  /* DIAMOND LOGO — faithful SVG recreation */
+  .diamond-svg .facet-light{fill:#FF5454;}
+  .diamond-svg .facet-dark{fill:#d94444;}
+
+  /* HERO */
+  .hero{padding:64px 48px 52px;background:var(--navy);position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,84,84,.08) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
+  .hero-label{font-size:11px;font-weight:500;color:var(--gray2);letter-spacing:.8px;text-transform:uppercase;margin-bottom:18px;}
+  .hero h1{font-size:44px;font-weight:700;line-height:1.1;letter-spacing:-1.5px;color:var(--white);max-width:560px;}
+  .hero h1 .dot{color:var(--coral);}
+  .hero p{margin-top:14px;color:#9ca3af;font-size:15px;font-weight:400;line-height:1.65;max-width:460px;}
+
+  /* SEARCH */
+  .search-wrap{padding:28px 48px;background:var(--white);border-bottom:1px solid var(--gray3);}
+  .search-box{display:flex;align-items:center;gap:12px;background:var(--gray);border:1px solid var(--gray3);border-radius:10px;padding:12px 18px;max-width:520px;transition:.2s;}
+  .search-box:focus-within{border-color:var(--coral);background:var(--white);}
+  .search-box svg{opacity:.3;flex-shrink:0;}
+  .search-box input{background:none;border:none;outline:none;color:var(--navy);font-family:'Inter',sans-serif;font-size:14px;font-weight:400;width:100%;}
+  .search-box input::placeholder{color:var(--gray2);}
+  .no-results{display:none;padding:14px 0 0;color:var(--gray2);font-size:14px;}
+
+  /* SECTIONS */
+  .section{padding:36px 48px 52px;}
+  .section-title{font-size:11px;font-weight:600;color:var(--gray2);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:20px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start;}
+
+  /* CARDS */
+  .card{
+    background:var(--white);border:1px solid var(--gray3);border-radius:14px;
+    padding:26px;cursor:pointer;
+    transition:border-color .2s,transform .15s,box-shadow .2s;
+    text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;gap:14px;
+    height:100%;
+  }
+  .card:hover{border-color:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
+  .card.hidden{display:none;}
+
+  .card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .icon-coral{background:rgba(255,84,84,.1);}
+  .icon-blue{background:rgba(65,129,250,.1);}
+  .icon-green{background:rgba(16,185,129,.1);}
+  .icon-yellow{background:rgba(245,158,11,.1);}
+  .icon-purple{background:rgba(139,92,246,.1);}
+  .icon-teal{background:rgba(20,184,166,.1);}
+  .icon-pink{background:rgba(236,72,153,.1);}
+
+  .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .card h3{font-size:15px;font-weight:600;line-height:1.35;color:var(--navy);}
+  .card p{font-size:13px;color:var(--gray2);line-height:1.65;font-weight:400;}
+  .card-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px;letter-spacing:.5px;white-space:nowrap;flex-shrink:0;text-transform:uppercase;}
+  .tag-new{background:rgba(255,84,84,.1);color:var(--coral);}
+  .tag-doc{background:rgba(65,129,250,.1);color:var(--blue);}
+  .tag-video{background:rgba(245,158,11,.1);color:#d97706;}
+  .tag-link{background:rgba(17,24,39,.07);color:var(--navy2);}
+
+  .card-footer{display:flex;align-items:center;gap:6px;color:var(--coral);font-size:13px;font-weight:500;margin-top:auto;padding-top:4px;}
+  .card-footer svg{transition:transform .2s;flex-shrink:0;}
+  .card:hover .card-footer svg{transform:translateX(4px);}
+
+  /* TIERS */
+  .tier-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+  .tier{display:flex;align-items:center;gap:5px;background:var(--gray);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:500;color:var(--navy2);}
+  .tier-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .dot-starter{background:#9ca3af;}.dot-silver{background:#94a3b8;}.dot-gold{background:#f59e0b;}.dot-platinum{background:#4181FA;}
+
+  /* EVENTS */
+  .events-list{display:flex;flex-direction:column;gap:10px;}
+  .event-item{background:var(--white);border:1px solid var(--gray3);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:border-color .2s;}
+  .event-date{background:var(--navy);border-radius:9px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:52px;color:var(--white);}
+  .event-date .day{font-size:19px;font-weight:700;line-height:1;}
+  .event-date .mon{font-size:10px;font-weight:500;letter-spacing:.6px;opacity:.6;margin-top:2px;text-transform:uppercase;}
+  .event-info{flex:1;}
+  .event-info h4{font-size:15px;font-weight:600;color:var(--navy);}
+  .event-info p{font-size:13px;color:var(--gray2);margin-top:3px;font-weight:400;}
+  .event-badge{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;letter-spacing:.5px;white-space:nowrap;text-transform:uppercase;}
+  .badge-save{background:rgba(255,84,84,.1);color:var(--coral);}
+
+  .divider{border:none;border-top:1px solid var(--gray3);margin:0 48px;}
+
+  /* FOOTER */
+  footer{padding:32px 48px;border-top:1px solid var(--gray3);background:var(--white);}
+  .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  .footer-brand-name{display:flex;align-items:center;gap:8px;}
+  .footer-brand-name span{font-size:15px;font-weight:700;color:var(--navy);}
+  .footer-brand p{font-size:13px;color:var(--gray2);margin-top:6px;font-weight:400;}
+  .footer-col-title{font-size:11px;font-weight:600;color:var(--gray2);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+  .am-links{display:flex;gap:8px;flex-wrap:wrap;}
+  .am-link{font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;background:var(--gray);border:1px solid var(--gray3);padding:6px 14px;border-radius:8px;transition:.2s;}
+  .am-link:hover{border-color:var(--coral);color:var(--coral);}
+  .footer-bottom{margin-top:24px;padding-top:20px;border-top:1px solid var(--gray3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .footer-bottom p{font-size:12px;color:var(--gray2);}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a{font-size:12px;color:var(--gray2);text-decoration:none;font-weight:500;}
+  .footer-links a:hover{color:var(--coral);}
+
+  @media(max-width:768px){
+    nav,.hero,.search-wrap,.section{padding-left:20px;padding-right:20px;}
+    .hero h1{font-size:30px;}
+    .divider{margin:0 20px;}
+    footer{padding:24px 20px;}
+    .footer-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <img src="https://i.imgur.com/CscBZ2b.png" height="32" alt="holded" style="height:32px;width:auto;">
+  </a>
+  <div class="nav-right">
+    <a href="#recursos">Recursos</a>
+    <a href="#formacion">Formación</a>
+    <a href="#eventos">Eventos</a>
+    <span class="nav-badge">SP Portal</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">Solution Partner Program</p>
+  <h1>Tu centro de recursos<span class="dot">.</span></h1>
+  <p>Accede al programa, materiales comerciales, formación y todo lo que necesitas para crecer junto a Holded.</p>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <svg width="17" height="17" fill="none" stroke="#111827" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="searchInput" type="text" placeholder="Busca recursos, guías, presentaciones…" oninput="filterCards()">
+  </div>
+  <p class="no-results" id="noResults">No se encontraron recursos para tu búsqueda.</p>
+</div>
+
+<!-- RECURSOS PRINCIPALES -->
+<div class="section" id="recursos">
+  <div class="section-title">Recursos principales</div>
+  <div class="grid">
+
+    <a href="https://holded-landing.webflow.io/es/solution-partners-conditions" target="_blank" class="card" data-keywords="programa condiciones términos comisiones tiers niveles starter silver gold platinum">
+      <div class="card-header">
+        <div class="card-icon icon-coral">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="card-tag tag-link">Programa</span>
+      </div>
+      <div>
+        <h3>Términos y condiciones del programa SP</h3>
+        <p>Condiciones, niveles, comisiones y beneficios del programa.</p>
+        <div class="tier-list">
+          <div class="tier"><div class="tier-dot dot-starter"></div>Starter</div>
+          <div class="tier"><div class="tier-dot dot-silver"></div>Silver</div>
+          <div class="tier"><div class="tier-dot dot-gold"></div>Gold</div>
+          <div class="tier"><div class="tier-dot dot-platinum"></div>Platinum</div>
+        </div>
+      </div>
+      <div class="card-footer">Ver condiciones <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://docs.google.com/presentation/d/10DD0U4w0ZcapVPRZst6L437drpNpWyfoJDmLSa7rG9I/edit" target="_blank" class="card" data-keywords="precios planes tarifas pricing guía comercial">
+      <div class="card-header">
+        <div class="card-icon icon-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <span class="card-tag tag-doc">Slides</span>
+      </div>
+      <div>
+        <h3>Guía de precios</h3>
+        <p>Tarifas actualizadas, planes y estructura de precios para tus conversaciones comerciales con clientes.</p>
+      </div>
+      <div class="card-footer">Abrir presentación <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1EeBsX2LKuGCpZncaK9Zawhg0ETn0YGi8/view?usp=drive_link" target="_blank" class="card" data-keywords="marca branding logotipo colores tipografía inter diamante identidad visual">
+      <div class="card-header">
+        <div class="card-icon icon-blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <span class="card-tag tag-doc">PDF</span>
+      </div>
+      <div>
+        <h3>Manual de marca</h3>
+        <p>Logotipo, colores, tipografía Inter y normas de uso para comunicar Holded de forma consistente y profesional.</p>
+      </div>
+      <div class="card-footer">Ver guía <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://docs.google.com/presentation/d/1vfwuuXHUx5rFfOfiif3YwaxqrHCBwOGp/edit?usp=drive_link" target="_blank" class="card" data-keywords="presentación comercial deck venta cliente propuesta pitch">
+      <div class="card-header">
+        <div class="card-icon icon-yellow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <span class="card-tag tag-new">Nuevo</span>
+      </div>
+      <div>
+        <h3>Presentaciones comerciales</h3>
+        <p>Deck listo para usar con clientes sobre producto, módulos y propuesta de valor de Holded.</p>
+      </div>
+      <div class="card-footer">Abrir y hacer copia <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1g0ATDFP_zF3xBcp3SdN5mC6qbn7DhL7O/view?usp=sharing" target="_blank" class="card" data-keywords="kiflo comisiones deals registrar herramienta manual">
+      <div class="card-header">
+        <div class="card-icon icon-purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <span class="card-tag tag-doc">PDF</span>
+      </div>
+      <div>
+        <h3>Manual de Kiflo</h3>
+        <p>Cómo registrar deals, consultar el estado de tus comisiones y gestionar tu cuenta en Kiflo paso a paso.</p>
+      </div>
+      <div class="card-footer">Ver manual <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://news.holded.com/" target="_blank" class="card" data-keywords="novedades actualizaciones producto lanzamientos features nuevas funciones">
+      <div class="card-header">
+        <div class="card-icon icon-coral">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <span class="card-tag tag-new">Nuevo</span>
+      </div>
+      <div>
+        <h3>Novedades de la plataforma</h3>
+        <p>Últimas funcionalidades lanzadas en Holded. Mantente al día para ofrecer lo mejor a tus clientes.</p>
+      </div>
+      <div class="card-footer">Ver actualizaciones <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- FORMACIÓN -->
+  <div class="section" id="formacion">
+  <div class="section-title">Formación</div>
+  <div class="grid">
+
+    <a href="https://training.holded.com/courses/training-holded-certification" target="_blank" class="card" data-keywords="certificación oficial certificacion training formación holded">
+      <div class="card-header">
+        <div class="card-icon icon-coral">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <span class="card-tag tag-new">Certificación</span>
+      </div>
+      <div>
+        <h3>Certificación oficial Holded</h3>
+        <p>Inicia tu certificación oficial y demuestra tu conocimiento como Solution Partner de Holded.</p>
+      </div>
+      <div class="card-footer">Iniciar certificación <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://help.holded.com/es/" target="_blank" class="card" data-keywords="academy formación aprender tutoriales vídeos artículos">
+      <div class="card-header">
+        <div class="card-icon icon-teal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <span class="card-tag tag-video">Academy</span>
+      </div>
+      <div>
+        <h3>Holded Academy</h3>
+        <p>Catálogo de vídeos y artículos para aprender a usar todas las funcionalidades de Holded paso a paso.</p>
+      </div>
+      <div class="card-footer">Ir a Academy <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="https://www.holded.com/es/webinars" target="_blank" class="card" data-keywords="webinars webinar formación online grabaciones sesiones">
+      <div class="card-header">
+        <div class="card-icon icon-pink">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <span class="card-tag tag-video">Webinar</span>
+      </div>
+      <div>
+        <h3>Webinars de Holded</h3>
+        <p>Webinars semanales sobre producto y buenas prácticas. Accede a los próximos y a las grabaciones anteriores.</p>
+      </div>
+      <div class="card-footer">Ver webinars <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EVENTOS -->
+<div class="section" id="eventos">
+  <div class="section-title">Próximos eventos</div>
+  <div class="events-list">
+    <div class="event-item">
+      <div class="event-date">
+        <div class="day">20</div>
+        <div class="mon">May</div>
+      </div>
+      <div class="event-info">
+        <h4>Partner Day 2025</h4>
+        <p>Más detalles próximamente. Reserva el día en tu agenda.</p>
+      </div>
+      <span class="event-badge badge-save">Save the date</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">
+          <img src="https://i.imgur.com/CscBZ2b.png" height="22" alt="holded" style="height:22px;width:auto;">
+      </div>
+      <p>Tu espacio de recursos como Solution Partner.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contacta con tu Account Manager</div>
+      <div class="am-links">
+        <a href="https://holded.chilipiper.com/me/daniela-orjuela/my-meeting" target="_blank" class="am-link">Daniela</a>
+        <a href="https://holded.chilipiper.com/me/jacobo-perez-cela-casal/reunion-con-jacobo" target="_blank" class="am-link">Jacobo</a>
+        <a href="https://holded.chilipiper.com/me/ignacio-nunez-/meeting-with-ignacio-nunez" target="_blank" class="am-link">Ignacio</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Herramientas</div>
+      <div class="am-links">
+        <a href="https://app.kiflo.com/account/50111348/dashboard" target="_blank" class="am-link">Acceder a Kiflo</a>
+        <a href="https://www.holded.com" target="_blank" class="am-link">holded.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Holded · Todos los derechos reservados</p>
+    <div class="footer-links">
+      <a href="https://holded-landing.webflow.io/es/solution-partners-conditions" target="_blank">Términos del programa</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterCards(){
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('[data-keywords]');
+    let visible = 0;
+    cards.forEach(c => {
+      const match = !q ||
+        c.getAttribute('data-keywords').includes(q) ||
+        (c.querySelector('h3')?.textContent.toLowerCase().includes(q)) ||
+        (c.querySelector('p')?.textContent.toLowerCase().includes(q));
+      c.classList.toggle('hidden', !match);
+      if(match) visible++;
+    });
+    document.getElementById('noResults').style.display = (q && visible===0) ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>
