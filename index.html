@@ -18,7 +18,6 @@
 
   nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--gray3);position:sticky;top:0;background:var(--white);z-index:100;}
   .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-  .logo-text{font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-0.3px;}
   .nav-badge{background:var(--navy);color:var(--white);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.5px;}
   .nav-right{display:flex;align-items:center;gap:28px;}
   .nav-right a{color:var(--gray2);font-size:14px;text-decoration:none;font-weight:400;transition:.2s;}
@@ -35,7 +34,7 @@
   .search-box{display:flex;align-items:center;gap:12px;background:var(--gray);border:1px solid var(--gray3);border-radius:10px;padding:12px 18px;max-width:520px;transition:.2s;}
   .search-box:focus-within{border-color:var(--coral);background:var(--white);}
   .search-box svg{opacity:.3;flex-shrink:0;}
-  .search-box input{background:none;border:none;outline:none;color:var(--navy);font-family:'Inter',sans-serif;font-size:14px;font-weight:400;width:100%;}
+  .search-box input{background:none;border:none;outline:none;color:var(--navy);font-family:'Inter',sans-serif;font-size:14px;width:100%;}
   .search-box input::placeholder{color:var(--gray2);}
   .no-results{display:none;padding:14px 0 0;color:var(--gray2);font-size:14px;}
 
@@ -57,10 +56,11 @@
   .icon-pink{background:rgba(236,72,153,.1);}
   .icon-orange{background:rgba(249,115,22,.1);}
 
+  .card-tag{display:none;}
+
   .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
   .card h3{font-size:15px;font-weight:600;line-height:1.35;color:var(--navy);}
   .card p{font-size:13px;color:var(--gray2);line-height:1.65;font-weight:400;}
-  .card-tag{display:none;}
 
   .card-footer{display:flex;align-items:center;gap:6px;color:var(--coral);font-size:13px;font-weight:500;margin-top:auto;padding-top:4px;}
   .card-footer svg{transition:transform .2s;flex-shrink:0;}
@@ -72,30 +72,40 @@
   .dot-starter{background:#9ca3af;}.dot-silver{background:#94a3b8;}.dot-gold{background:#f59e0b;}.dot-platinum{background:#4181FA;}
 
   .events-list{display:flex;flex-direction:column;gap:10px;}
-  .event-item{background:var(--white);border:1px solid var(--gray3);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:border-color .2s;}
+  .event-item{background:var(--white);border:1px solid var(--gray3);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;}
   .event-date{background:var(--navy);border-radius:9px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:52px;color:var(--white);}
   .event-date .day{font-size:19px;font-weight:700;line-height:1;}
   .event-date .mon{font-size:10px;font-weight:500;letter-spacing:.6px;opacity:.6;margin-top:2px;text-transform:uppercase;}
   .event-info{flex:1;}
   .event-info h4{font-size:15px;font-weight:600;color:var(--navy);}
-  .event-info p{font-size:13px;color:var(--gray2);margin-top:3px;font-weight:400;}
+  .event-info p{font-size:13px;color:var(--gray2);margin-top:3px;}
   .event-badge{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;letter-spacing:.5px;white-space:nowrap;text-transform:uppercase;}
   .badge-save{background:rgba(255,84,84,.1);color:var(--coral);}
+
+  /* EQUIPO */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+  .team-card{background:var(--white);border:1px solid var(--gray3);border-radius:14px;overflow:hidden;transition:border-color .2s,transform .15s,box-shadow .2s;}
+  .team-card:hover{border-color:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
+  .team-photo-wrap{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--gray);display:flex;align-items:center;justify-content:center;}
+  .team-photo{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  .team-info{padding:16px 18px;display:flex;flex-direction:column;gap:3px;}
+  .team-info h4{font-size:14px;font-weight:600;color:var(--navy);}
+  .team-role{font-size:11px;font-weight:500;color:var(--coral);}
+  .team-hobby{font-size:11px;color:var(--gray2);margin-top:2px;}
+  .team-email{font-size:11px;color:var(--blue);text-decoration:none;margin-top:6px;font-weight:500;word-break:break-all;}
+  .team-email:hover{text-decoration:underline;}
 
   .divider{border:none;border-top:1px solid var(--gray3);margin:0 48px;}
 
   footer{padding:32px 48px;background:var(--navy);}
   .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap;}
-  .footer-brand-name{display:flex;align-items:center;gap:8px;}
-  .footer-brand-name span{font-size:15px;font-weight:700;color:var(--white);}
-  .footer-brand p{font-size:13px;color:#6b7280;margin-top:6px;font-weight:400;}
+  .footer-brand p{font-size:13px;color:#6b7280;margin-top:6px;}
   .footer-col-title{font-size:11px;font-weight:600;color:#6b7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
   .am-links{display:flex;gap:8px;flex-wrap:wrap;}
   .am-link{font-size:13px;font-weight:500;color:var(--white);text-decoration:none;background:var(--navy2);border:1px solid var(--navy3);padding:6px 14px;border-radius:8px;transition:.2s;}
   .am-link:hover{border-color:var(--coral);color:var(--coral);}
   .footer-bottom{margin-top:24px;padding-top:20px;border-top:1px solid var(--navy3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
   .footer-bottom p{font-size:12px;color:#6b7280;}
-  .footer-links{display:flex;gap:20px;}
   .footer-links a{font-size:12px;color:#6b7280;text-decoration:none;font-weight:500;}
   .footer-links a:hover{color:var(--coral);}
 
@@ -136,18 +146,13 @@
   <p class="no-results" id="noResults">No se encontraron recursos para tu búsqueda.</p>
 </div>
 
-<!-- RECURSOS PRINCIPALES -->
+<!-- RECURSOS -->
 <div class="section" id="recursos">
   <div class="section-title">Recursos principales</div>
   <div class="grid">
 
     <a href="https://holded-landing.webflow.io/es/solution-partners-conditions" target="_blank" class="card" data-keywords="programa condiciones términos comisiones tiers niveles starter silver gold platinum">
-      <div class="card-header">
-        <div class="card-icon icon-coral">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <span class="card-tag tag-link">Programa</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-coral"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
       <div>
         <h3>Términos y condiciones del programa SP</h3>
         <p>Condiciones, niveles, comisiones y beneficios del programa.</p>
@@ -162,12 +167,7 @@
     </a>
 
     <a href="https://docs.google.com/presentation/d/10DD0U4w0ZcapVPRZst6L437drpNpWyfoJDmLSa7rG9I/edit?usp=sharing" target="_blank" class="card" data-keywords="precios planes tarifas pricing guía comercial">
-      <div class="card-header">
-        <div class="card-icon icon-green">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <span class="card-tag tag-doc">Slides</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div>
       <div>
         <h3>Guía de precios</h3>
         <p>Tarifas actualizadas, planes y estructura de precios para tus conversaciones comerciales con clientes.</p>
@@ -175,13 +175,8 @@
       <div class="card-footer">Abrir presentación <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
 
-    <a href="https://drive.google.com/file/d/1Npa8MrAJBFldPvkqdeiwUvZYtZl03K6i/view" target="_blank" class="card" data-keywords="marca branding logotipo colores tipografía inter diamante identidad visual">
-      <div class="card-header">
-        <div class="card-icon icon-blue">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <span class="card-tag tag-doc">PDF</span>
-      </div>
+    <a href="https://drive.google.com/file/d/1Npa8MrAJBFldPvkqdeiwUvZYtZl03K6i/view" target="_blank" class="card" data-keywords="marca branding logotipo colores tipografía identidad visual">
+      <div class="card-header"><div class="card-icon icon-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div></div>
       <div>
         <h3>Manual de marca</h3>
         <p>Logotipo, colores, tipografía Inter y normas de uso para comunicar Holded de forma consistente y profesional.</p>
@@ -190,12 +185,7 @@
     </a>
 
     <a href="https://docs.google.com/presentation/d/1vfwuuXHUx5rFfOfiif3YwaxqrHCBwOGp/edit?usp=drive_link" target="_blank" class="card" data-keywords="presentación comercial deck venta cliente propuesta pitch">
-      <div class="card-header">
-        <div class="card-icon icon-yellow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <span class="card-tag tag-new">Nuevo</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-yellow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div></div>
       <div>
         <h3>Presentación comercial</h3>
         <p>Deck listo para usar con clientes sobre producto, módulos y propuesta de valor de Holded.</p>
@@ -204,12 +194,7 @@
     </a>
 
     <a href="https://drive.google.com/file/d/1g0ATDFP_zF3xBcp3SdN5mC6qbn7DhL7O/view?usp=sharing" target="_blank" class="card" data-keywords="kiflo comisiones deals registrar herramienta manual">
-      <div class="card-header">
-        <div class="card-icon icon-purple">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <span class="card-tag tag-doc">PDF</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div>
       <div>
         <h3>Manual de Kiflo</h3>
         <p>Cómo registrar deals, consultar el estado de tus comisiones y gestionar tu cuenta en Kiflo paso a paso.</p>
@@ -218,12 +203,7 @@
     </a>
 
     <a href="https://drive.google.com/drive/folders/1E31z6FmWR6WIjtmdROCL4Le_XNhWjFQg?usp=drive_link" target="_blank" class="card" data-keywords="dummy data datos prueba demo empresa test ejemplo importar">
-      <div class="card-header">
-        <div class="card-icon icon-teal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
-        </div>
-        <span class="card-tag tag-doc">Drive</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div></div>
       <div>
         <h3>Dummy data</h3>
         <p>Datos de prueba listos para importar y hacer demos de Holded con una empresa de ejemplo.</p>
@@ -231,13 +211,8 @@
       <div class="card-footer">Abrir carpeta <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
 
-    <a href="https://developers.holded.com/reference/api-key" target="_blank" class="card" data-keywords="api developers integración integración técnica desarrollo key clave documentación">
-      <div class="card-header">
-        <div class="card-icon icon-blue">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <span class="card-tag tag-doc">Docs</span>
-      </div>
+    <a href="https://developers.holded.com/reference/api-key" target="_blank" class="card" data-keywords="api developers integración técnica desarrollo key clave documentación">
+      <div class="card-header"><div class="card-icon icon-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4181FA" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div></div>
       <div>
         <h3>API de Holded</h3>
         <p>Documentación técnica para integrar Holded vía API. Genera tu API key y consulta todos los endpoints disponibles.</p>
@@ -246,12 +221,7 @@
     </a>
 
     <a href="https://news.holded.com/" target="_blank" class="card" data-keywords="novedades actualizaciones producto lanzamientos features nuevas funciones">
-      <div class="card-header">
-        <div class="card-icon icon-coral">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        </div>
-        <span class="card-tag tag-new">Nuevo</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-coral"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div></div>
       <div>
         <h3>Novedades de la plataforma</h3>
         <p>Últimas funcionalidades lanzadas en Holded. Mantente al día para ofrecer lo mejor a tus clientes.</p>
@@ -269,13 +239,8 @@
   <div class="section-title">Formación</div>
   <div class="grid">
 
-    <a href="https://training.holded.com/courses/training-holded-certification" target="_blank" class="card" data-keywords="certificación oficial certificacion training formación holded">
-      <div class="card-header">
-        <div class="card-icon icon-coral">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        </div>
-        <span class="card-tag tag-new">Certificación</span>
-      </div>
+    <a href="https://training.holded.com/courses/training-holded-certification" target="_blank" class="card" data-keywords="certificación oficial training formación holded">
+      <div class="card-header"><div class="card-icon icon-coral"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5454" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div></div>
       <div>
         <h3>Certificación oficial Holded</h3>
         <p>Inicia tu certificación oficial y demuestra tu conocimiento como Solution Partner de Holded.</p>
@@ -284,12 +249,7 @@
     </a>
 
     <a href="https://help.holded.com/es/" target="_blank" class="card" data-keywords="academy formación aprender tutoriales vídeos artículos">
-      <div class="card-header">
-        <div class="card-icon icon-teal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <span class="card-tag tag-video">Academy</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div></div>
       <div>
         <h3>Holded Academy</h3>
         <p>Catálogo de vídeos y artículos para aprender a usar todas las funcionalidades de Holded paso a paso.</p>
@@ -298,12 +258,7 @@
     </a>
 
     <a href="https://fast.wistia.com/embed/channel/l3a6jjuzpz" target="_blank" class="card" data-keywords="tutoriales tutorial vídeos video formación aprender wistia">
-      <div class="card-header">
-        <div class="card-icon icon-orange">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-        </div>
-        <span class="card-tag tag-video">Video</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div></div>
       <div>
         <h3>Tutoriales</h3>
         <p>Vídeos paso a paso para dominar las funcionalidades clave de Holded y sacarle el máximo partido.</p>
@@ -312,12 +267,7 @@
     </a>
 
     <a href="https://www.holded.com/es/webinars" target="_blank" class="card" data-keywords="webinars webinar formación online grabaciones sesiones">
-      <div class="card-header">
-        <div class="card-icon icon-pink">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-        </div>
-        <span class="card-tag tag-video">Webinar</span>
-      </div>
+      <div class="card-header"><div class="card-icon icon-pink"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div></div>
       <div>
         <h3>Webinars de Holded</h3>
         <p>Webinars semanales sobre producto y buenas prácticas. Accede a los próximos y a las grabaciones anteriores.</p>
@@ -336,7 +286,7 @@
   <div class="events-list">
     <div class="event-item">
       <div class="event-date">
-        <div class="day">29</div>
+        <div class="day">28</div>
         <div class="mon">May</div>
       </div>
       <div class="event-info">
@@ -348,8 +298,78 @@
   </div>
 </div>
 
+<hr class="divider">
+
+<!-- EQUIPO -->
+<div class="section" id="equipo" style="background:var(--white);">
+  <div class="section-title">Tu equipo</div>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="https://i.imgur.com/OtaQr9M.jpg" alt="Daniela Orjuela" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h4>Daniela Orjuela</h4>
+        <p class="team-role">SP Team Manager</p>
+        <p class="team-hobby">Amante del voleibol</p>
+        <a href="mailto:daniela.orjuela@holded.com" class="team-email">daniela.orjuela@holded.com</a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="https://i.imgur.com/dW58Pud.jpg" alt="Ignacio Nuñez" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h4>Ignacio Nuñez</h4>
+        <p class="team-role">SP Account Manager</p>
+        <p class="team-hobby">Apasionado por la fotografía</p>
+        <a href="mailto:ignacio.nunez@holded.com" class="team-email">ignacio.nunez@holded.com</a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="https://i.imgur.com/Pq7DZhB.jpg" alt="Jacobo Perez" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h4>Jacobo Perez</h4>
+        <p class="team-role">SP Account Manager</p>
+        <p class="team-hobby">Alma de músico</p>
+        <a href="mailto:jacobo.perez@holded.com" class="team-email">jacobo.perez@holded.com</a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="https://i.imgur.com/RPeeiUw.jpg" alt="Pol Hernandez" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h4>Pol Hernandez</h4>
+        <p class="team-role">SP Account Executive</p>
+        <p class="team-hobby">Fanático del fútbol</p>
+        <a href="mailto:pol.hernandez@holded.com" class="team-email">pol.hernandez@holded.com</a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="https://i.imgur.com/rmQbiPS.jpg" alt="Mourad Mechach" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h4>Mourad Mechach</h4>
+        <p class="team-role">SP Account Executive</p>
+        <p class="team-hobby">Amante de la meditación</p>
+        <a href="mailto:mourad.mechach@holded.com" class="team-email">mourad.mechach@holded.com</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- NEWSLETTER -->
-<div class="section" style="background:var(--white);border-top:1px solid var(--gray3);">
+<div class="section" style="border-top:1px solid var(--gray3);">
   <div style="max-width:520px;">
     <div class="section-title">Newsletter</div>
     <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;">Inscríbete a nuestra newsletter</h3>
@@ -370,7 +390,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-brand-name">
+      <div style="display:flex;align-items:center;gap:8px;">
         <img src="https://i.imgur.com/sqT0pUC.png" height="22" alt="holded" style="height:22px;width:auto;">
       </div>
       <p>Tu espacio de recursos como Solution Partner.</p>
@@ -391,7 +411,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Holded · Todos los derechos reservados</p>
+    <p>© 2026 Holded · Todos los derechos reservados</p>
     <div class="footer-links">
       <a href="https://holded-landing.webflow.io/es/solution-partners-conditions" target="_blank">Términos del programa</a>
     </div>
